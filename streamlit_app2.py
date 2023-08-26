@@ -48,9 +48,6 @@ def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
-with st.sidebar:
-st.markdown('Demonstrate by Leonard Ling')
-
 # Function for generating LLaMA2 response
 # Refactored from https://github.com/a16z-infra/llama2-chatbot
 def generate_llama2_response(prompt_input):
@@ -70,7 +67,7 @@ if prompt := st.chat_input(disabled=not replicate_api):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
-
+st.markdown('Demonstrate by Leonard Ling')
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
