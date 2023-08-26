@@ -38,17 +38,15 @@ os.environ['REPLICATE_API_TOKEN'] = replicate_api
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
-
+st.markdown('Demonstrate by Leonard Ling1')
 # Display or clear chat messages
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
-
+st.markdown('Demonstrate by Leonard Ling2')
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
-
-st.markdown('Demonstrate by Leonard Ling')
 
 # Function for generating LLaMA2 response
 # Refactored from https://github.com/a16z-infra/llama2-chatbot
